@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
 
 module.exports = {
@@ -18,6 +19,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"]
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new CopyPlugin([{ from: "assets", to: "assets" }]),
     new HtmlWebpackPlugin()
   ]
