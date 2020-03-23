@@ -24,7 +24,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin([{ from: "assets", to: "assets" }]),
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      template: "src/index.html",
+      title: "A TypeScript App"
+    })
   ],
   optimization: {
     splitChunks: {
