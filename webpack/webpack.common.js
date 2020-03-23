@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
@@ -12,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       { test: /\.tsx?$/, use: "ts-loader" },
-      { test: /\.css$/, use: ["style-loader", "css-loader"] }
+      { test: /\.css$/, use: [MiniCssExtractPlugin.loader, "css-loader"] }
     ]
   },
   resolve: {
