@@ -4,10 +4,10 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  entry: path.resolve(__dirname, "../src/main.ts"),
+  entry: path.resolve(__dirname, "../src/index.ts"),
   output: {
     path: path.resolve(__dirname, "../dist"),
-    filename: "app.bundle.js"
+    filename: "[name].bundle.js"
   },
   module: {
     rules: [
@@ -16,11 +16,19 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"]
+    extensions: [".tsx", ".ts", ".js"],
+    alias: {
+      "~": path.resolve(__dirname, "../src")
+    }
   },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin([{ from: "assets", to: "assets" }]),
     new HtmlWebpackPlugin()
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: "all"
+    }
+  }
 };
