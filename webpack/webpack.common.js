@@ -28,7 +28,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "src/index.html",
       title: "A TypeScript App"
-    })
+    }),
+    new MiniCssExtractPlugin()
   ],
   optimization: {
     splitChunks: {
