@@ -5,8 +5,9 @@
   "author": "Hendrik Mans <hendrik@mans.de>",
   "license": "MIT",
   "scripts": {
-    "build:dev": "webpack --config webpack/webpack.dev.js",
-    "build:prod": "webpack --config webpack/webpack.prod.js",
+    "start": "yarn dev",
+    "build": "webpack --config webpack/webpack.dev.js",
+    "build:production": "webpack --config webpack/webpack.prod.js",
     "dev": "webpack-dev-server --config webpack/webpack.dev.js"
   },
   "devDependencies": {
